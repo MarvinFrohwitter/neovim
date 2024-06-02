@@ -47,6 +47,15 @@ vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", opts)
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
+vim.keymap.set("n", "<leader>x", function()
+	local neogit = require("neogit")
+	if neogit.status.is_open() then
+		neogit.close()
+	else
+		neogit.open()
+	end
+end, opts)
+
 -- Just works for single line movement
 vim.keymap.set({ "v" }, "<A-j>", "<cmd>move +1<CR><ESC>V", opts)
 vim.keymap.set({ "v" }, "<A-k>", "<cmd>move -2<CR><ESC>V", opts)
