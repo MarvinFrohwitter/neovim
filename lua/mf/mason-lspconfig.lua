@@ -12,6 +12,22 @@ local handlers = {
 		})
 	end,
 
+	-- ["clangd"] = function()
+	-- 	require("lspconfig")["clangd"].setup({
+
+	-- 		capabilities = function()
+	-- 			local c = vim.lsp.protocol.make_client_capabilities()
+	-- 			c.textDocument.completion.completionItem.snippetSupport = true
+	-- 			c.textDocument.documentHighlight.dynamicRegistration = true
+	-- 			c = require("cmp_nvim_lsp").default_capabilities(capabilities)
+	-- 			return c
+	-- 		end,
+	-- 		settings = {
+	-- 			clangd = 0,
+	-- 		},
+	-- 	})
+	-- end,
+
 	-- ["r_language_server"] = function()
 	-- 	local lspconfig = require("lspconfig")
 	-- 	lspconfig.r_language_server.setup({
@@ -63,23 +79,6 @@ local handlers = {
 -- 	-- 	require("lspconfig")["lua_ls"].setup({
 -- 	--        })
 -- 	--    end,
-
--- 	-- ["clangd"] = function()
--- 	-- 	require("lspconfig")["clangd"].setup({
-
--- 	-- 		capabilities = function()
--- 	-- 			local c = vim.lsp.protocol.make_client_capabilities()
--- 	-- 			c.textDocument.completion.completionItem.snippetSupport = true
--- 	-- 			c.textDocument.documentHighlight.dynamicRegistration = true
--- 	-- 			c = require("cmp_nvim_lsp").default_capabilities(capabilities)
--- 	-- 			return c
--- 	-- 		end,
--- 	-- 		capabilities = false,
--- 	-- 		settings = {
--- 	-- 			clangd = 0,
--- 	-- 		},
--- 	-- 	})
--- 	-- end,
 
 -- 	-- ["rust_analyzer"] = function()
 -- 	-- 	require("lspconfig")["rust_analyzer"].setup({

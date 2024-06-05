@@ -1,15 +1,16 @@
 return {
 
+	{ "nvim-lua/plenary.nvim", lazy = false },
+
 	-- information for development with K
 	"folke/neodev.nvim",
 
 	-- LSP
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
-	"neovim/nvim-lspconfig",
+	{ "williamboman/mason.nvim", lazy = false },
+	{ "williamboman/mason-lspconfig.nvim", lazy = false },
+	{ "neovim/nvim-lspconfig", lazy = false },
 
 	"nvimtools/none-ls.nvim",
-	"nvim-lua/plenary.nvim",
 	{ "jay-babu/mason-null-ls.nvim" },
 	{ "jayp0521/mason-nvim-dap.nvim" },
 
@@ -42,7 +43,7 @@ return {
 	-- 	lazy = false,
 	-- },
 
-	-- Other usefull plugins
+	-- Other useful plugins
 	{
 		"preservim/vim-pencil",
 		event = "VeryLazy",

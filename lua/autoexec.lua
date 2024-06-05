@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
---  creates the comand to change the spelllang for cmp
+--  creates the command to change the spelllang for cmp
 vim.api.nvim_create_user_command("SwitchLang", function(args)
 	vim.opt.spelllang = args.args
 	vim.api.nvim_command("CmpDictionaryUpdate")

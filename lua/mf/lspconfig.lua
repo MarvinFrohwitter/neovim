@@ -11,11 +11,11 @@ require("lspconfig")["jdtls"].setup({
 	flags = flags,
 })
 
--- require("lspconfig")["clangd"].setup({
--- 	on_attach = on_attach,
--- 	flags = flags,
--- 	capabilities = capabilities,
--- })
+require("lspconfig")["clangd"].setup({
+	on_attach = on_attach,
+	flags = flags,
+	capabilities = capabilities,
+})
 
 -- require("lspconfig")["r_language_server"].setup({
 -- 	on_attach = on_attach,
