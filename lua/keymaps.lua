@@ -27,11 +27,13 @@ local Terminal = require("toggleterm.terminal").Terminal
 
 vim.keymap.set("t", "<leader>ä", "<cmd> ToggleTermToggleAll<CR>", opts)
 vim.keymap.set({ "x", "v", "n" }, "<leader>ä", "<cmd> ToggleTerm<CR>", opts)
-
-vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle<CR>", opts)
-vim.keymap.set("n", "<leader>ql", "<cmd>TroubleToggle loclist<CR>", opts)
-vim.keymap.set("n", "<leader>qf", "<cmd>TroubleToggle quickfix<CR>", opts)
-vim.keymap.set("n", "<leader>gR", "<cmd>TroubleToggle lsp_references<CR>", opts)
+vim.keymap.set("n", "<leader>t", function() require("trouble").toggle() end, opts)
+vim.keymap.set("n", "<leader>dt", "<cmd>Trouble diagnostics toggle<CR>", opts)
+vim.keymap.set("n", "<leader>ql", "<cmd>Trouble loclist toggle<CR>", opts)
+vim.keymap.set("n", "<leader>qf", "<cmd>Trouble qflist toggle<CR>", opts)
+vim.keymap.set("n", "<leader>gR", "<cmd>Trouble lsp_references toggle<CR>", opts)
+vim.keymap.set("n", "<leader>ls", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", opts)
+-- vim.keymap.set("n", "<leader>o", "<cmd>Trouble symbols toggle focus=false<cr>", opts)
 
 vim.api.nvim_set_keymap("n", "<leader>ll", "<cmd>LLPStartPreview<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>mm", "<cmd>MarkdownPreviewToggle<CR>", opts)
@@ -135,14 +137,17 @@ vim.keymap.set("v", "<leader>s", "<cmd>%s//g<Left><Left>")
 vim.keymap.set("v", "<leader>S", "<cmd>%s//gc<Left><Left><Left>")
 
 -- Telescope
+local builtins = require('telescope.builtin')
+vim.keymap.set("n", "<leader>fh", builtins.help_tags, opts)
+vim.keymap.set("n", "<leader>fg", builtins.live_grep, opts)
+vim.keymap.set("n", "<leader>fb", builtins.buffers, opts)
+vim.keymap.set("n", "<leader>fo", builtins.oldfiles, opts)
+vim.keymap.set("n", "<leader>fk", builtins.keymaps, opts)
+vim.keymap.set("n", "<leader>fn", "<cmd>new<cr>", opts)
+
 vim.keymap.set("n", "<leader>ff", function()
 	vim.api.nvim_command("Telescope find_files")
 end, opts)
-vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
-vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
-vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
-vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", opts)
-vim.keymap.set("n", "<leader>fn", "<cmd>enew<cr>", opts)
 
 vim.keymap.set("n", "gp", "<cmd>lua require('goto-preview').close_all_win()<CR>", opts)
 vim.keymap.set("n", "<leader>gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", opts)

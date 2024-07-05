@@ -1,5 +1,11 @@
 return {
 	-- LaTeX
-	{ "lervag/vimtex", ft = { "tex" } },
-	{ "xuhdev/vim-latex-live-preview", ft = { "tex" } },
+	{
+		"lervag/vimtex",
+		ft = { "tex" },
+	},
+	{
+		"xuhdev/vim-latex-live-preview",
+		ft = { "tex" },
+	},
 }

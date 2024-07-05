@@ -7,7 +7,7 @@ vim.keymap.set("n", "<leader>b", ":lua require('dap').toggle_breakpoint()<CR>")
 vim.keymap.set("n", "<leader>B", ":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
 vim.keymap.set("n", "<leader>lp", ":lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
 vim.keymap.set("n", "<leader>dr", ":lua require('dap').rep_open()<CR>")
-vim.keymap.set("n", "<leader>dt", ":lua require'dap-python'.test_method()<CR>")
+vim.keymap.set("n", "<leader>dm", ":lua require'dap-python'.test_method()<CR>")
 -- The python ones
 -- nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
 -- nnoremap <silent> <leader>df :lua require('dap-python').test_class()<CR>

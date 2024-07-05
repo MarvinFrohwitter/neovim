@@ -14,7 +14,10 @@ return {
 	config = function()
 		local actions = require("telescope.actions")
 		-- local utils = require('telescope.utils')
-		local trouble = require("trouble.providers.telescope")
+
+		-- local open_with_trouble = require("trouble.sources.telescope").open
+		-- Use this to add more results without clearing the trouble list
+		local add_to_trouble = require("trouble.sources.telescope").add
 
 		require("telescope").setup({
 			defaults = {
@@ -24,11 +27,11 @@ return {
 						["<C-j>"] = actions.move_selection_next,
 						["<C-k>"] = actions.move_selection_previous,
 						["<C-c>"] = actions.close,
-						["<c-t>"] = trouble.open_with_trouble,
+						["<c-t>"] = add_to_trouble,
 					},
 					n = {
 						["<C-c>"] = actions.close,
-						["<c-t>"] = trouble.open_with_trouble,
+						["<c-t>"] = add_to_trouble,
 					},
 				},
 				layout_config = {

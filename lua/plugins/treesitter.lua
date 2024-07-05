@@ -21,7 +21,6 @@ return {
 			ensure_installed = "all",
 			-- install languages synchronously (only applied to `ensure_installed`)
 			sync_install = true,
-			-- List of parsers to ignore installin
 			gignore_install = { "" },
 			autopairs = {
 				enable = true,
@@ -68,37 +67,10 @@ return {
 				-- disable = { "jsx", "cpp" },
 				-- Also highlight non-bracket delimiters like html tags.
 				extended_mode = true,
-				-- Do not enable for files with more than n lines, int
 				max_file_lines = nil,
-				-- colors = {}, -- table of hex strings
-				-- termcolors = {} -- table of colour name strings
 			},
 
-			-- Is depricated now built in
-			-- playground = {
-			-- 	enable = true,
-			-- 	disable = {},
-			-- 	updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-			-- 	persist_queries = false, -- Whether the query persists across vim sessions
-			-- 	keybindings = {
-			-- 		toggle_query_editor = "o",
-			-- 		toggle_hl_groups = "i",
-			-- 		toggle_injected_languages = "t",
-			-- 		toggle_anonymous_nodes = "a",
-			-- 		toggle_language_display = "I",
-			-- 		focus_language = "f",
-			-- 		unfocus_language = "F",
-			-- 		update = "R",
-			-- 		goto_node = "<cr>",
-			-- 		show_help = "?",
-			-- 	},
-			-- },
-
 			indent = { enable = true, disable = { "yaml" } },
-			-- context_commentstring = {
-			-- 	enable = true,
-			-- 	enable_autocmd = false,
-			-- },
 		})
 		require("ts_context_commentstring").setup()
 		vim.g.skip_ts_context_commentstring_module = true
