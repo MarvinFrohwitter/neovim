@@ -13,6 +13,8 @@ vim.opt.ignorecase = true
 vim.opt.mouse = "a"
 vim.opt.mousemodel = "extend"
 -- vim.opt.mousemodel = "popup"
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 vim.opt.incsearch = true
 vim.opt.inccommand = "nosplit"
 vim.opt.tabstop = 4
@@ -35,12 +37,12 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.cursorline = true
 vim.opt.ttyfast = true
 -- vim.opt.backupdir = '~/.cache/nvim/backup'
--- vim.opt.laststatus = 3
+vim.opt.laststatus = 3
 vim.opt.spell = true
 vim.opt.spelllang = { "en", "de" }
 -- vim.cmd([[highlight WinSeparator guibg=None]])
 vim.opt.winbar = "%=%m %f"
--- vim.opt.cmdheight = 0
+vim.opt.cmdheight = 0
 vim.opt.wrap = true
 vim.opt.winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None"
 -- vim.opt.winhighlight = "NormalFloat:PmenuThumb,NormalFloat:PmenuThumb,CursorLine:PmenuSel,Search:None"

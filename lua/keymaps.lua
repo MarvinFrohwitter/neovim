@@ -41,6 +41,9 @@ vim.api.nvim_set_keymap("n", "<leader>mm", "<cmd>MarkdownPreviewToggle<CR>", opt
 -- For commenting
 vim.keymap.set({ "n", "x" }, "<leader>gcc", ":norm gbc<CR>", opts)
 
+-- Oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
 -- NvimTree
 vim.keymap.set("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>")
 
@@ -140,6 +143,7 @@ vim.keymap.set("v", "<leader>S", "<cmd>%s//gc<Left><Left><Left>")
 local builtins = require('telescope.builtin')
 vim.keymap.set("n", "<leader>fh", builtins.help_tags, opts)
 vim.keymap.set("n", "<leader>fg", builtins.live_grep, opts)
+vim.keymap.set("n", "<leader>fw", builtins.grep_string, opts)
 vim.keymap.set("n", "<leader>fb", builtins.buffers, opts)
 vim.keymap.set("n", "<leader>fo", builtins.oldfiles, opts)
 vim.keymap.set("n", "<leader>fk", builtins.keymaps, opts)
