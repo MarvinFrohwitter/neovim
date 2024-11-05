@@ -27,7 +27,9 @@ local Terminal = require("toggleterm.terminal").Terminal
 
 vim.keymap.set("t", "<leader>ä", "<cmd> ToggleTermToggleAll<CR>", opts)
 vim.keymap.set({ "x", "v", "n" }, "<leader>ä", "<cmd> ToggleTerm<CR>", opts)
-vim.keymap.set("n", "<leader>t", function() require("trouble").toggle() end, opts)
+vim.keymap.set("n", "<leader>t", function()
+	require("trouble").toggle()
+end, opts)
 vim.keymap.set("n", "<leader>dt", "<cmd>Trouble diagnostics toggle<CR>", opts)
 vim.keymap.set("n", "<leader>ql", "<cmd>Trouble loclist toggle<CR>", opts)
 vim.keymap.set("n", "<leader>qf", "<cmd>Trouble qflist toggle<CR>", opts)
@@ -140,13 +142,16 @@ vim.keymap.set("v", "<leader>s", "<cmd>%s//g<Left><Left>")
 vim.keymap.set("v", "<leader>S", "<cmd>%s//gc<Left><Left><Left>")
 
 -- Telescope
-local builtins = require('telescope.builtin')
+local builtins = require("telescope.builtin")
 vim.keymap.set("n", "<leader>fh", builtins.help_tags, opts)
 vim.keymap.set("n", "<leader>fg", builtins.live_grep, opts)
 vim.keymap.set("n", "<leader>fw", builtins.grep_string, opts)
 vim.keymap.set("n", "<leader>fb", builtins.buffers, opts)
 vim.keymap.set("n", "<leader>fo", builtins.oldfiles, opts)
 vim.keymap.set("n", "<leader>fk", builtins.keymaps, opts)
+vim.keymap.set("n", "<leader><leader>u", function()
+	require("telescope").extensions.undo.undo()
+end, opts)
 vim.keymap.set("n", "<leader>fn", "<cmd>new<cr>", opts)
 
 vim.keymap.set("n", "<leader>ff", function()

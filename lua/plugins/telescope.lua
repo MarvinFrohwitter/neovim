@@ -5,6 +5,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
+		"debugloop/telescope-undo.nvim",
 		"benfowler/telescope-luasnip.nvim",
 		"nvim-telescope/telescope-dap.nvim",
 		--fzf
@@ -52,6 +53,17 @@ return {
 				-- 		},
 				-- 	},
 				-- },
+				undo = {
+					use_delta = true,
+					use_custom_command = nil, -- setting this implies `use_delta = false`. Accepted format is: { "bash", "-c", "echo '$DIFF' | delta" }
+					side_by_side = false,
+					vim_diff_opts = {
+						ctxlen = vim.o.scrolloff,
+					},
+					entry_format = "state #$ID, $STAT, $TIME",
+					time_format = "",
+					saved_only = false,
+				},
 				fzf = {
 					fuzzy = true, -- false will only do exact matching
 					override_generic_sorter = true, -- override the generic sorter
@@ -72,6 +84,7 @@ return {
 		-- require('telescope').load_extension('aerial')
 		-- require("telescope").load_extension("lazygit")
 		require("telescope").load_extension("ui-select")
+		require("telescope").load_extension("undo")
 		require("telescope").load_extension("dap")
 		require("telescope").load_extension("noice")
 	end,
