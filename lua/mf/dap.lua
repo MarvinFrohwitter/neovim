@@ -75,20 +75,20 @@ require("dapui").setup({
     {
       elements = {
       -- Elements can be strings or table with id and size keys.
-        { id = "scopes", size = 0.25 },
-        "breakpoints",
+        { id = "scopes", size = 0.40 },
+        { id = "breakpoints", size = 0.25 },
         "stacks",
-        "watches",
+        { id = "repl", size = 0.05 },
       },
-      size = 40, -- 40 columns
-      position = "left",
+      size = 80, -- 80 columns
+      position = "right",
     },
     {
       elements = {
-        "repl",
         "console",
+        "watches",
       },
-      size = 0.25, -- 25% of total lines
+      size = 0.35, -- 25% of total lines
       position = "bottom",
     },
   },
@@ -96,7 +96,7 @@ require("dapui").setup({
     -- Requires Neovim nightly (or 0.8 when released)
     enabled = true,
     -- Display controls in this element
-    element = "repl",
+    element = "console",
     icons = {
       pause = "",
       play = "",
