@@ -4,7 +4,8 @@
 -- require("mf.which-key")
 -- require("mf.dashboard")
 
-require("mf.neodev")
+-- require("mf.neodev")
+
 require("mf.mason")
 require("mf.mason-lspconfig")
 require("mf.lspconfig")

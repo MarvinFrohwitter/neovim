@@ -3,7 +3,7 @@ return {
 	{ "nvim-lua/plenary.nvim", lazy = false },
 
 	-- information for development with K
-	"folke/neodev.nvim",
+	-- "folke/neodev.nvim",
 
 	-- LSP
 	{ "williamboman/mason.nvim", lazy = false },
