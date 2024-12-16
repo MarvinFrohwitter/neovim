@@ -161,7 +161,7 @@ return {
 		-- If there is no definition, it will instead be hidden
 		-- When you use an action in finder like "open vsplit",
 		-- you can use <C-t> to jump back
-		vim.keymap.set("n", "<leader>gh", "<cmd>Lspsaga lsp_finder<CR>")
+		vim.keymap.set("n", "<leader>gh", "<cmd>Lspsaga finder<CR>")
 
 		-- Code action
 		-- vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
@@ -170,7 +170,7 @@ return {
 		-- vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>")
 
 		-- Rename all occurrences of the hovered word for the selected files
-		-- vim.keymap.set("n", "gr", "<cmd>Lspsaga rename ++project<CR>")
+		-- vim.keymap.set("n", "<leader><leader>gr", "<cmd>Lspsaga rename ++project<CR>")
 
 		-- Peek definition
 		-- You can edit the file containing the definition in the floating window
@@ -238,8 +238,8 @@ return {
 		-- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++keep<CR>")
 
 		-- Call hierarchy
-		vim.keymap.set("n", "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
-		vim.keymap.set("n", "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
+		-- vim.keymap.set("n", "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
+		-- vim.keymap.set("n", "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 
 		-- Floating terminal
 		-- vim.keymap.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
