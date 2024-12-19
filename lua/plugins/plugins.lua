@@ -1,6 +1,12 @@
 return {
 
 	{ "nvim-lua/plenary.nvim", lazy = false },
+	{
+		"rebelot/kanagawa.nvim",
+		config = function()
+			vim.cmd("colorscheme kanagawa-wave")
+		end,
+	},
 
 	-- information for development with K
 	-- "folke/neodev.nvim",

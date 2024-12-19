@@ -1,7 +1,7 @@
 return {
 	"rose-pine/neovim",
 	name = "rose-pine",
-    lazy = false,
+	lazy = false,
 	config = function()
 		require("rose-pine").setup({
 			variant = "auto", -- auto, main, moon, or dawn
@@ -60,7 +60,7 @@ return {
 			before_highlight = function(group, highlight, palette)
 				-- Disable all undercurls
 				if highlight.undercurl then
-				    highlight.undercurl = true
+					highlight.undercurl = true
 				end
 				--
 				-- Change palette colour
@@ -70,10 +70,10 @@ return {
 			end,
 		})
 
--- vim.cmd("colorscheme rose-pine")
--- vim.cmd("colorscheme rose-pine-main")
-vim.cmd("colorscheme rose-pine-moon")
--- vim.cmd("colorscheme rose-pine-dawn")
+		-- vim.cmd("colorscheme rose-pine")
+		-- vim.cmd("colorscheme rose-pine-main")
+		-- This was the thing i am using before
+		-- vim.cmd("colorscheme rose-pine-moon")
+		-- vim.cmd("colorscheme rose-pine-dawn")
 	end,
 }
-
