@@ -26,6 +26,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 -- vim.keymap.set({ "x", "v", "n" }, "<leader><leader>a", "<cmd>lua _lazygit_toggle()<CR>", opts)
 
 vim.keymap.set("t", "<leader>ä", "<cmd> ToggleTermToggleAll<CR>", opts)
+vim.keymap.set("t", "<ESC><ESC>", "<C-\\><C-n>", opts)
 vim.keymap.set({ "x", "v", "n" }, "<leader>ä", "<cmd> ToggleTerm<CR>", opts)
 vim.keymap.set("n", "<leader>t", function()
 	require("trouble").toggle()
@@ -145,6 +146,61 @@ vim.keymap.set("v", "<leader>S", "<cmd>%s//gc<Left><Left><Left>")
 local builtins = require("telescope.builtin")
 vim.keymap.set("n", "<leader>fh", builtins.help_tags, opts)
 vim.keymap.set("n", "<leader>fg", builtins.live_grep, opts)
+
+vim.keymap.set("n", "<leader>fs", function(opts)
+	local pickers = require("telescope.pickers")
+	local finders = require("telescope.finders")
+	local make_entry = require("telescope.make_entry")
+	local conf = require("telescope.config").values
+	opts = opts or {}
+	opts.cwd = opts.cwd or vim.uv.cwd()
+
+	local finder = finders.new_async_job({
+		command_generator = function(prompt)
+			if not prompt or prompt == "" then
+				return nil
+			end
+
+			local pieces = vim.split(prompt, "  ")
+			local args = { "rg" }
+			if pieces[1] then
+				table.insert(args, "-e")
+				table.insert(args, pieces[1])
+			end
+
+			if pieces[2] then
+				table.insert(args, "-g")
+				table.insert(args, pieces[2])
+			end
+
+			---@diagnostic disable-next-line: deprecated
+			return vim.tbl_flatten({
+				args,
+				{
+					"--color=auto",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--smart-case",
+				},
+			})
+		end,
+		entry_maker = make_entry.gen_from_vimgrep(opts),
+		cwd = opts.cwd,
+	})
+
+	pickers
+		.new(opts, {
+			debounce = 100,
+			prompt_title = "Multi Grep",
+			finder = finder,
+			previewer = conf.grep_previewer(opts),
+			sorter = require("telescope.sorters").empty(),
+		})
+		:find()
+end)
+
 vim.keymap.set("n", "<leader>fw", builtins.grep_string, opts)
 vim.keymap.set("n", "<leader>fb", builtins.buffers, opts)
 vim.keymap.set("n", "<leader>fo", builtins.oldfiles, opts)

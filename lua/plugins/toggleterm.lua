@@ -18,7 +18,7 @@ return {
 					return vim.o.columns * 0.4
 				end
 			end,
-			open_mapping = [[<C-\>]],
+			-- open_mapping = [[<C-\>]],
 			-- on_create = fun(t: Terminal), -- function to run when the terminal is first created
 			-- on_open = fun(t: Terminal), -- function to run when the terminal opens
 			-- on_close = fun(t: Terminal), -- function to run when the terminal closes
@@ -27,7 +27,7 @@ return {
 			-- on_exit = fun(t: Terminal, job: number, exit_code: number, name: string) -- function to run when terminal process exits
 			hide_numbers = true, -- hide the number column in toggleterm buffers
 			shade_filetypes = {},
-			autochdir = false, -- when neovim changes it current directory the terminal will change it's own when next it's opened
+			autochdir = true, -- when neovim changes it current directory the terminal will change it's own when next it's opened
 
 			-- highlights = {
 			--   -- highlights which map to a highlight group name and a table of it's values
@@ -63,11 +63,11 @@ return {
 				-- the 'curved' border is a custom border type
 				-- not natively supported but implemented in this plugin.
 				-- border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-				border = "single",
+				border = "rounded",
 				-- like `size`, width and height can be a number or function which is passed the current terminal
 				-- width = <value>,
 				-- height = <value>,
-				winblend = 3,
+				winblend = 4,
 			},
 			winbar = {
 				enabled = false,
