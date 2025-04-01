@@ -333,7 +333,7 @@ return {
 					},
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lsp_signature_help" },
-					{ name = "nvim_lua" },
+					{ name = "render-markdown" },
 					{ name = "path" },
 					{ name = "buffer" },
 					{ name = "cmp_pandoc" },
