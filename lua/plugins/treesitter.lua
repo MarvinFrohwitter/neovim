@@ -4,10 +4,10 @@ return {
 	lazy = false,
 	dependencies = {
 		{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = false },
-		{ "nvim-treesitter/nvim-treesitter-context",     lazy = false },
-		{ "mfussenegger/nvim-treehopper",                lazy = false },
+		{ "nvim-treesitter/nvim-treesitter-context", lazy = false },
+		{ "mfussenegger/nvim-treehopper", lazy = false },
 		{ "nvim-treesitter/nvim-treesitter-textobjects", lazy = false },
-		{ "p00f/nvim-ts-rainbow",                        lazy = false },
+		{ "p00f/nvim-ts-rainbow", lazy = false },
 	},
 
 	config = function()
