@@ -12,8 +12,8 @@ return {
 	-- "folke/neodev.nvim",
 
 	-- LSP
-	{ "williamboman/mason.nvim", lazy = false },
-	{ "williamboman/mason-lspconfig.nvim", lazy = false },
+	{ "mason-org/mason.nvim", lazy = false },
+	{ "mason-org/mason-lspconfig.nvim", lazy = false },
 	{ "neovim/nvim-lspconfig", lazy = false },
 
 	"nvimtools/none-ls.nvim",

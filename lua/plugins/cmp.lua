@@ -3,23 +3,28 @@ return {
 		lazy = false,
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
+
 		-- install jsregexp (optional!).
 		build = "make install_jsregexp",
 		dependencies = {
 			{ "rafamadriz/friendly-snippets" },
 
-			{
-				"mireq/luasnip-snippets",
-				init = function()
-					require("luasnip_snippets.common.snip_utils").setup()
-				end,
-			},
+			-- {
+			-- 	-- This breaks file saving in v0.11 and python snippets are broken as well.
+			-- 	-- It is mostly redundant with friendly-snippets so is not needed in the future.
+			-- 	"mireq/luasnip-snippets",
+			-- 	init = function()
+			-- 		require("luasnip_snippets.common.snip_utils").setup()
+			-- 	end,
+			-- },
 		},
 		init = function()
 			require("luasnip").setup({
+
 				-- Required to automatically include base snippets, like "c" snippets for "cpp"
-				load_ft_func = require("luasnip_snippets.common.snip_utils").load_ft_func,
-				ft_func = require("luasnip_snippets.common.snip_utils").ft_func,
+				-- load_ft_func = require("luasnip_snippets.common.snip_utils").load_ft_func,
+				-- ft_func = require("luasnip_snippets.common.snip_utils").ft_func,
+
 				enable_autosnippets = true,
 			})
 		end,
@@ -130,7 +135,7 @@ return {
 			luasnip.filetype_extend("typescript", { "tsdoc" })
 			luasnip.filetype_extend("javascript", { "jsdoc" })
 			luasnip.filetype_extend("lua", { "luadoc" })
-			luasnip.filetype_extend("python", { "pydoc" })
+			-- luasnip.filetype_extend("python", { "pydoc" })
 			luasnip.filetype_extend("rust", { "rustdoc" })
 			luasnip.filetype_extend("cs", { "csharpdoc" })
 			luasnip.filetype_extend("java", { "javadoc" })

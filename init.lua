@@ -22,6 +22,8 @@ vim.cmd([[
     endif
 ]])
 
+vim.cmd([[let g:VM_maps["Switch Mode"] = '<tab>' ]])
+
 vim.api.nvim_create_autocmd("FileType", {
     pattern = {
         "ada", "agda", "angular", "apex", "arduino", "asm", "astro", "authzed", "awk", "bash", "bass", "beancount",
