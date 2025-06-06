@@ -4,58 +4,58 @@ local flags = require("mf.lspconfig_configuration").flags
 
 -- where your installed servers are setup "automatically" you can do the following
 local handlers = {
-	function(server_name) -- default handler (optional)
-		require("lspconfig")[server_name].setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			flags = flags,
-		})
-	end,
+    function(server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+            flags = flags,
+        })
+    end,
 
-	-- ["clangd"] = function()
-	-- 	require("lspconfig")["clangd"].setup({
+    -- ["clangd"] = function()
+    -- 	require("lspconfig")["clangd"].setup({
 
-	-- 		capabilities = function()
-	-- 			local c = vim.lsp.protocol.make_client_capabilities()
-	-- 			c.textDocument.completion.completionItem.snippetSupport = true
-	-- 			c.textDocument.documentHighlight.dynamicRegistration = true
-	-- 			c = require("cmp_nvim_lsp").default_capabilities(capabilities)
-	-- 			return c
-	-- 		end,
-	-- 		settings = {
-	-- 			clangd = 0,
-	-- 		},
-	-- 	})
-	-- end,
+    -- 		capabilities = function()
+    -- 			local c = vim.lsp.protocol.make_client_capabilities()
+    -- 			c.textDocument.completion.completionItem.snippetSupport = true
+    -- 			c.textDocument.documentHighlight.dynamicRegistration = true
+    -- 			c = require("cmp_nvim_lsp").default_capabilities(capabilities)
+    -- 			return c
+    -- 		end,
+    -- 		settings = {
+    -- 			clangd = 0,
+    -- 		},
+    -- 	})
+    -- end,
 
-	-- ["r_language_server"] = function()
-	-- 	local lspconfig = require("lspconfig")
-	-- 	lspconfig.r_language_server.setup({
-	-- 		on_attach = on_attach,
-	-- 		capabilities = capabilities,
-	-- 	})
-	-- end,
+    -- ["r_language_server"] = function()
+    -- 	local lspconfig = require("lspconfig")
+    -- 	lspconfig.r_language_server.setup({
+    -- 		on_attach = on_attach,
+    -- 		capabilities = capabilities,
+    -- 	})
+    -- end,
 
-	-- ["ocamllsp"] = function()
-	-- 	local lspconfig = require("lspconfig")
-	-- 	lspconfig.ocamllsp.setup({
-	-- 		on_attach = on_attach,
-	-- 		capabilities = capabilities,
-	-- 	})
-	-- end,
+    -- ["ocamllsp"] = function()
+    -- 	local lspconfig = require("lspconfig")
+    -- 	lspconfig.ocamllsp.setup({
+    -- 		on_attach = on_attach,
+    -- 		capabilities = capabilities,
+    -- 	})
+    -- end,
 
-	-- ["lua_ls"] = function()
-	-- 	local lspconfig = require("lspconfig")
-	-- 	lspconfig.lua_ls.setup({
-	-- 		settings = {
-	-- 			Lua = {
-	-- 				diagnostics = {
-	-- 					globals = { "vim" },
-	-- 				},
-	-- 			},
-	-- 		},
-	-- 	})
-	-- end,
+    -- ["lua_ls"] = function()
+    -- 	local lspconfig = require("lspconfig")
+    -- 	lspconfig.lua_ls.setup({
+    -- 		settings = {
+    -- 			Lua = {
+    -- 				diagnostics = {
+    -- 					globals = { "vim" },
+    -- 				},
+    -- 			},
+    -- 		},
+    -- 	})
+    -- end,
 }
 -- require("mason-lspconfig").setup_handlers({
 -- 	-- The first entry (without a key) will be the default handler
@@ -80,11 +80,11 @@ local handlers = {
 -- 	--        })
 -- 	--    end,
 
--- 	-- ["rust_analyzer"] = function()
--- 	-- 	require("lspconfig")["rust_analyzer"].setup({
--- 	-- 		settings = {},
--- 	-- 	})
--- 	-- end,
+	-- ["rust_analyzer"] = function()
+	-- 	require("lspconfig")["rust_analyzer"].setup({
+	-- 		settings = {},
+	-- 	})
+	-- end,
 -- 	-- ["lua_ls"] = function()
 -- 	-- 	require("lspconfig")["lua_ls"].setup({
 -- 	-- 		settings = {
@@ -113,6 +113,7 @@ local handlers = {
 -- })
 
 require("mason-lspconfig").setup({
-	-- ensure_installed = { "sumneko_lua", "jdtls" },
-	handlers = handlers,
+    -- ensure_installed = { "sumneko_lua", "jdtls" },
+    automatic_enable = true, -- This enable the vim.lsp.enable()
+    handlers = handlers,
 })
