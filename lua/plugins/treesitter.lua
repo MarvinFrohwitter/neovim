@@ -17,7 +17,7 @@ return {
 
 		require("nvim-treesitter").setup({
 			-- A list of parser names or tiers ('stable', 'unstable')
-			ensure_install = { "stable" },
+			-- ensure_install = { "stable" },
 
 			-- Directory to install parsers and queries to
 			install_dir = vim.fn.stdpath("data") .. "/site",
