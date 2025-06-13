@@ -349,3 +349,12 @@ vim.api.nvim_create_autocmd("FileType", {
 		-- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 	end,
 })
+
+vim.api.nvim_create_user_command("Compile", function()
+	input = vim.fn.input("compile:")
+	input = input:gsub('"', '\\"')
+	input = input:gsub("'", "\\'")
+	vim.api.nvim_command("set makeprg=" .. input:gsub(" ", "\\ "))
+	vim.api.nvim_command("make")
+	vim.api.nvim_command("copen")
+end, {})
