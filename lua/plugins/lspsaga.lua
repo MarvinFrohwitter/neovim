@@ -229,7 +229,7 @@ return {
 		-- To disable it just use ":Lspsaga hover_doc ++quiet"
 		-- Pressing the key twice will enter the hover window
 
-		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+		-- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 
 		-- If you want to keep the hover window in the top right hand corner,
 		-- you can pass the ++keep argument
