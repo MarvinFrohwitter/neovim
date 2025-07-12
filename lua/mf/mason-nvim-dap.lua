@@ -8,14 +8,14 @@ require("mason-nvim-dap").setup({
 			require("mason-nvim-dap").default_setup(config)
 		end,
 
-		["javadbg"] = function(config)
-			config.adapters = {
-				type = "executable",
-				command = "~/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar",
-			}
+		-- ["javadbg"] = function(config)
+		-- 	config.adapters = {
+		-- 		type = "executable",
+		-- 		command = "~/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar",
+		-- 	}
 
-			require("mason-nvim-dap").default_setup(config) -- don't forget this!
-		end,
+		-- 	require("mason-nvim-dap").default_setup(config) -- don't forget this!
+		-- end,
 		-- python = function(config)
 		--     config.adapters = {
 		--      args = {
