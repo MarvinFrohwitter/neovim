@@ -351,10 +351,13 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_user_command("Compile", function()
-	input = vim.fn.input("compile:")
+	local input = vim.fn.input("compile:")
 	input = input:gsub('"', '\\"')
 	input = input:gsub("'", "\\'")
 	vim.api.nvim_command("set makeprg=" .. input:gsub(" ", "\\ "))
 	vim.api.nvim_command("make")
 	vim.api.nvim_command("copen")
+
+	local key = vim.api.nvim_replace_termcodes("<C-w>L", true, false, true)
+	vim.api.nvim_feedkeys(key, "n", false)
 end, {})
