@@ -40,29 +40,29 @@ vim.api.nvim_create_autocmd("LspAttach", {
 --     capabilities = capabilities,
 -- })
 
-require("lspconfig")["lua_ls"].setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = flags,
-    settings = {
-        Lua = {
-            runtime = {
-                -- LuaJIT in the case of Neovim
-                version = "LuaJIT",
-                path = vim.split(package.path, ";"),
-            },
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { "vim" },
-            },
-            workspace = {
-                checkThirdParty = false,
-                -- Make the server aware of Neovim runtime files
-                library = {
-                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                    [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-                },
-            },
-        },
-    },
-})
+-- require("lspconfig")["lua_ls"].setup({
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     flags = flags,
+--     settings = {
+--         Lua = {
+--             runtime = {
+--                 -- LuaJIT in the case of Neovim
+--                 version = "LuaJIT",
+--                 path = vim.split(package.path, ";"),
+--             },
+--             diagnostics = {
+--                 -- Get the language server to recognize the `vim` global
+--                 globals = { "vim" },
+--             },
+--             workspace = {
+--                 checkThirdParty = false,
+--                 -- Make the server aware of Neovim runtime files
+--                 library = {
+--                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+--                     [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+--                 },
+--             },
+--         },
+--     },
+-- })
