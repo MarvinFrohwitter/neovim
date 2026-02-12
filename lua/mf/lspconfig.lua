@@ -15,6 +15,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
             capabilities,
             require("cmp_nvim_lsp").default_capabilities()
         )
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        if client and client.name == "clangd" then
+            client.server_capabilities.semanticTokensProvider = nil
+        end
 
         local opts = { buffer = event.buf }
         config.setup(event.buf)
@@ -40,29 +44,30 @@ vim.api.nvim_create_autocmd("LspAttach", {
 --     capabilities = capabilities,
 -- })
 
--- require("lspconfig")["lua_ls"].setup({
---     on_attach = on_attach,
---     capabilities = capabilities,
---     flags = flags,
---     settings = {
---         Lua = {
---             runtime = {
---                 -- LuaJIT in the case of Neovim
---                 version = "LuaJIT",
---                 path = vim.split(package.path, ";"),
---             },
---             diagnostics = {
---                 -- Get the language server to recognize the `vim` global
---                 globals = { "vim" },
---             },
---             workspace = {
---                 checkThirdParty = false,
---                 -- Make the server aware of Neovim runtime files
---                 library = {
---                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
---                     [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
---                 },
---             },
---         },
---     },
--- })
+vim.lsp.config("lua_ls", {
+    -- require("lspconfig")["lua_ls"].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = flags,
+    settings = {
+        Lua = {
+            runtime = {
+                -- LuaJIT in the case of Neovim
+                version = "LuaJIT",
+                path = vim.split(package.path, ";"),
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { "vim" },
+            },
+            workspace = {
+                checkThirdParty = false,
+                -- Make the server aware of Neovim runtime files
+                library = {
+                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                    [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+                },
+            },
+        },
+    },
+})
