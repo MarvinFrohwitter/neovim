@@ -20,7 +20,8 @@ return {
 			},
 			-- Callback function to run any custom logic or keymaps for the quickfix buffer
 			on_qf = function(bufnr)
-				require("quicker").refresh(bufnr)
+                -- This will result in autocmd recursion so you cant make an occur list  out of it.
+				-- require("quicker").refresh()
 			end,
 			edit = {
 				-- Enable editing the quickfix like a normal buffer

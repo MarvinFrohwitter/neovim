@@ -222,3 +222,17 @@ vim.keymap.set("n", "<leader>gpr", "<cmd>lua require('goto-preview').goto_previe
 
 -- Show line diagnostics
 -- vim.keymap.set("n","<leader><leader>k", "<Cmd>lua vim.diagnostic.open_float()<CR>")
+
+vim.keymap.set("n", "<leader>a", function()
+	vim.cmd("Compile")
+	local key = vim.api.nvim_replace_termcodes("<C-w>L", true, false, true)
+	vim.api.nvim_feedkeys(key, "n", false)
+end)
+
+vim.keymap.set("n", "<C-g>n", function()
+	vim.cmd("NextError")
+end)
+
+vim.keymap.set("n", "<C-g>p", function()
+	vim.cmd("PrevError")
+end)
