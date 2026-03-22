@@ -362,3 +362,17 @@ vim.api.nvim_create_autocmd("FileType", {
 -- 	vim.api.nvim_feedkeys(key, "n", false)
 -- end, {})
 
+-- local ok, osc52 = pcall(require, "vim.ui.clipboard.osc52")
+-- if ok then
+-- 	vim.g.clipboard = {
+-- 		name = "OSC 52",
+-- 		copy = {
+-- 			["+"] = osc52.copy("+"),
+-- 			["*"] = osc52.copy("*"),
+-- 		},
+-- 		paste = {
+-- 			["+"] = osc52.paste("+"),
+-- 			["*"] = osc52.paste("*"),
+-- 		},
+-- 	}
+-- end
