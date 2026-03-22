@@ -229,6 +229,51 @@ vim.keymap.set("n", "<leader>a", function()
 	vim.api.nvim_feedkeys(key, "n", false)
 end)
 
+local function buffer_is_displayed_in_window(name)
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		local buf = vim.api.nvim_win_get_buf(win)
+		local buf_name = vim.api.nvim_buf_get_name(buf)
+		if buf_name:match(name) then
+			return true, win
+		end
+	end
+	return false, nil
+end
+
+local function buffer_exists(name)
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+		if vim.api.nvim_buf_is_loaded(buf) then
+			local buf_name = vim.api.nvim_buf_get_name(buf)
+			if buf_name:match(name) then
+				return true
+			end
+		end
+	end
+	return false
+end
+
+-- Usage example:
+local exists = buffer_exists("YourBufferName")
+if exists then
+	print("Buffer exists!")
+else
+	print("Buffer does not exist.")
+end
+
+-- Usage example:
+vim.keymap.set("n", "<leader><leader>a", function()
+	local name = "*compilation*"
+	local ok, win = buffer_is_displayed_in_window(name)
+	if ok then
+		vim.api.nvim_win_close(win, true)
+	else
+		if buffer_exists(name) then
+			vim.cmd("vsplit")
+			vim.cmd("buffer " .. name)
+		end
+	end
+end)
+
 vim.keymap.set("n", "<C-g>n", function()
 	vim.cmd("NextError")
 end)
