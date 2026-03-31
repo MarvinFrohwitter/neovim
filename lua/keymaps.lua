@@ -65,10 +65,17 @@ vim.keymap.set("n", "<leader>x", function()
 end, opts)
 
 -- Just works for single line movement
-vim.keymap.set({ "v" }, "<A-j>", "<cmd>move +1<CR><ESC>V", opts)
-vim.keymap.set({ "v" }, "<A-k>", "<cmd>move -2<CR><ESC>V", opts)
--- vim.keymap.set("v", "J", "<cmd>move '>+1<CR>gv-gv", opts)
--- vim.keymap.set("v", "K", "<cmd>move '<-2<CR>gv-gv", opts)
+vim.keymap.set("v", "<A-k>", ":move '<-2<CR>gv=gv", opts)
+vim.keymap.set("v", "<A-j>", ":move '>+1<CR>gv=gv", opts)
+
+vim.keymap.set("n", "<A-k>", ":move -2<CR>==", opts)
+vim.keymap.set("n", "<A-j>", ":move +1<CR>==", opts)
+
+vim.keymap.set("v", "<A-K>", ":t '<-1<CR>gv=gv", opts)
+vim.keymap.set("v", "<A-J>", ":t '>+0<CR>gv=gv", opts)
+
+vim.keymap.set("n", "<A-K>", ":t +0<CR>==", opts)
+vim.keymap.set("n", "<A-J>", ":t -1<CR>==", opts)
 
 -- better movement in terminal windows
 local terminal_opts = { silent = true }
