@@ -25,6 +25,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
+-- vim.lsp.config('*', {
+--     root_markers = { '.git', '.hg' },
+-- })
+
 -- require("lspconfig")["jdtls"].setup({
 --     root_dir = require("lspconfig").util.root_pattern(".git", "pom.xml"),
 --     on_attach = on_attach,
@@ -71,3 +75,4 @@ vim.lsp.config("lua_ls", {
         },
     },
 })
+

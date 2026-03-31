@@ -1,9 +1,9 @@
 return {
 	-- Color for Hexcodes
-	"norcalli/nvim-colorizer.lua",
-    lazy = false,
+	-- "norcalli/nvim-colorizer.lua",
+	"catgoose/nvim-colorizer.lua",
+	lazy = false,
 	config = function()
-
 		local status_ok, colorizer = pcall(require, "colorizer")
 		if not status_ok then
 			return
